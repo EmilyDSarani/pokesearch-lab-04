@@ -17,10 +17,35 @@ import request from 'superagent'
 
 
 export default class PokeSearch extends Component {
+    //this is setting the state for the search engin, the pokedex, and the loading screen
     state={
+        pokedex:[],
+        searchQueary:'',
+        isLoading: false,
 
     }
+    //the componentDidMount is the life-cycle method. According to my notes, this method is called at a certain moment in the component's life. Which here, we are calling it right before it is born...?
+    //this is so the component will do the thing we need it to do upon loading it in.
+    //we make it async so that...fetch can grab it. I asked Dani
+    compenentDidMount =async () =>{
 
+    }
+    //This is like what we did in the creature lab. The handle Change is going to set the state for that current state 
+    //later this can be used by the user to help target whatever they are looking for......
+    handleChange=(e)=>{
+        this.setState({searchQueary: e.target.value})
+    }
+    //we also set this to async because...we don't know when the user is going to press submit?
+    //so...this needs to be flexiable so that whenever the user types in their thing and hit submit it comes back with that thing?
+    handleSubmit= async(e) =>{
+        e.preventDefault()
+        
+    }
+    //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
+    
+    fetchSearch = async() =>{
+
+    }
     render() {
         return (
             <div>
