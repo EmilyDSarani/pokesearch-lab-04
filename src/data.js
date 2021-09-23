@@ -2,7 +2,8 @@
 //I think....just import the pokedex...? Pokedex for now
 //curtsey of Alchemy Code Lab PokeDex(https://pokedex-alchemy.herokuapp.com/)
 
-export default =[
+
+const pokedex = [
     {
         "_id": "5ff4fb7cd89993a89cc65444",
         "pokemon": "venusaur-mega",
@@ -667,3 +668,5 @@ export default =[
 
 
 ]
+
+export default pokedex

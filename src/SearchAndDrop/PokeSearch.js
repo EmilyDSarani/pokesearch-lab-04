@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import pokelist from '../data.js';
+import pokedex from '../data.js';
 import DropDown from './DropDown.js';
 import request from 'superagent'
 //I think the superagent gets imported here. 
@@ -18,7 +18,7 @@ import request from 'superagent'
 
 export default class PokeSearch extends Component {
     state={
-        
+
     }
 
     render() {
