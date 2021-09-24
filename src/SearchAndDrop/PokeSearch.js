@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import pokedex from '../data.js';
 import DropDown from './DropDown.js';
 import request from 'superagent'
 import Spinner from '../HeadAndInstruction/Spinner.js';
@@ -24,6 +23,7 @@ export default class PokeSearch extends Component {
         pokedex:[],
         searchQueary:'',
         isLoading: false,
+        sortOrder:'',
 
     }
     //the componentDidMount is the life-cycle method. According to my notes, this method is called at a certain moment in the component's life. Which here, we are calling it right before it is born...?
@@ -43,17 +43,27 @@ export default class PokeSearch extends Component {
     handleSubmit= async(e) =>{
         e.preventDefault();
         //this.setState({searchQueary: e.target.value});
-        await this.fetchSearch();
+        await this.fetchSearch()
         
     }
-    //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
-    
 
+    handleSortOrder= async(e) => {
+        await this.setState({sortOrder: e.target.value})
+        this.fetchSearch()
+    }
+
+    //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
+    //Yosi and Karl showed me that I could stack the ${state} on top of each other in the code. 
+    //Zack pointed out that instead of grabbing from data to remember that we are grabbing from the API
     fetchSearch = async() =>{
         this.setState({isLoading:true})
-        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}`);
-        this.setState({pokedex: pokeball.body.results, isLoading:false})  //I made a note that you can put a lot of states in one setState...so I assume one needs to go here
+        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}&sort=pokemon&direction=${this.state.sortOrder}`);
+        this.setState({pokedex: pokeball.body.results, isLoading:false});  //I made a note that you can put a lot of states in one setState...so I assume one needs to go here
+        
     }
+
+  
+
    
     render() {
         
@@ -63,10 +73,13 @@ export default class PokeSearch extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} />
                     <button>Who's That Pokemon??</button>
+                    
                 </form>
+                <DropDown handleSort={this.handleSortOrder}
+                option={["asc","desc"]}/>
                 {/* if this state, else this, else this*/}
                 <ul>
-                  
+               
                 {
                     this.state.pokedex.isLoading
                     ?  <Spinner />
@@ -75,7 +88,7 @@ export default class PokeSearch extends Component {
                 
                 </ul>
 
-                <DropDown />
+                
             </div>
         )
     }

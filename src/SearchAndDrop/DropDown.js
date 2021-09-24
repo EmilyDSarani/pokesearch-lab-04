@@ -10,9 +10,13 @@ export default class DropDown extends Component {
     render() {
         
         return (
-            <div>
-               
-            </div>
+        <select onChange={this.props.handleSort}> 
+
+            <option value = "asc"> A-Z</option>
+            <option value = "desc">Z-A</option>
+        
+        </select>
+                      
         )
     }
 }
