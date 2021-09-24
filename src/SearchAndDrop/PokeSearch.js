@@ -85,7 +85,7 @@ export default class PokeSearch extends Component {
                 <ul>
                
                 {
-                    this.state.pokedex.isLoading
+                    this.state.isLoading
                     ?  <Spinner />
                     : <PokeList pokemon = {this.state.pokedex} />
                 }
