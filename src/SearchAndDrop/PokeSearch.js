@@ -24,6 +24,7 @@ export default class PokeSearch extends Component {
         searchQueary:'',
         isLoading: false,
         sortOrder:'',
+        // sortType:'',
 
     }
     //the componentDidMount is the life-cycle method. According to my notes, this method is called at a certain moment in the component's life. Which here, we are calling it right before it is born...?
@@ -51,6 +52,9 @@ export default class PokeSearch extends Component {
         await this.setState({sortOrder: e.target.value})
         this.fetchSearch()
     }
+    // handleSortType= async(e) =>{
+    //     await this.setState({sortType: e.target.value})
+    // }
 
     //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
     //Yosi and Karl showed me that I could stack the ${state} on top of each other in the code. 
@@ -69,7 +73,7 @@ export default class PokeSearch extends Component {
         
         return (
             
-            <div>
+            <div className="form">
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} />
                     <button>Who's That Pokemon??</button>
@@ -83,7 +87,7 @@ export default class PokeSearch extends Component {
                 {
                     this.state.pokedex.isLoading
                     ?  <Spinner />
-                    : <PokeList pokemon ={this.state.pokedex} />
+                    : <PokeList pokemon = {this.state.pokedex} />
                 }
                 
                 </ul>

@@ -1,6 +1,5 @@
 import PokeSearch from './SearchAndDrop/PokeSearch.js';
 import './App.css';
-import DropDown from './SearchAndDrop/DropDown.js';
 import Head from './HeadAndInstruction/Head.js';
 import Footer from './HeadAndInstruction/Footer.js';
 //We want to keep this page clean and render in the different pokemon that will be coming through on the data

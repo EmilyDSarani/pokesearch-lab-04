@@ -71,4 +71,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 Mentions:
-Pokeball Loading Screen https://imgur.com/gallery/XLJxE8S/comment/326719083 
+Pokeball Loading Screen https://i.pinimg.com/originals/d6/18/a6/d618a633128f486b7eaf2db453995cd5.gif found on google
+background image of Pokedex: https://wallpaperaccess.com/full/5818315.png
+

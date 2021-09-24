@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Loader from 'react-loader-spinner';
+
 
 
 export default class Spinner extends Component {
@@ -7,8 +7,8 @@ export default class Spinner extends Component {
     render() {
         return (
             <div>
-                {/* Stef Baughman pointed this way for the spinner. Thought it was a cool way to go. It was a thing that was installed */}
-                <Loader type="TailSpin" color="#00BFFF" height={80} width={80} />
+                
+                <img src='https://i.pinimg.com/originals/d6/18/a6/d618a633128f486b7eaf2db453995cd5.gif' alt= 'pokeball'/>
 
             </div>
         )
