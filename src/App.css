@@ -1,3 +1,5 @@
+/* Katie showed me how to import the fonts into the CSS*/
+@import url('http://fonts.cdnfonts.com/css/pokemon-solid');
 body{
   background-image:url(https://wallpaperaccess.com/full/5818315.png);
   background-position: center;
@@ -73,6 +75,7 @@ ul{
    justify-content: center;
    text-align: center;
   color: red;
+  font-family: 'Pokemon Solid', sans-serif;
  }
 .form{
   text-align: center;
