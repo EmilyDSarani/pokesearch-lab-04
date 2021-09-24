@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import PokeSearch from './SearchAndDrop/PokeSearch.js';
 import './App.css';
+import DropDown from './SearchAndDrop/DropDown.js';
+import Head from './HeadAndInstruction/Head.js';
+import Footer from './HeadAndInstruction/Footer.js';
+//We want to keep this page clean and render in the different pokemon that will be coming through on the data
+//This will be the future landing page when we start doing more of the react router stuff
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Head />
+      <PokeSearch />
+      <Footer />
     </div>
   );
 }
