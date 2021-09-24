@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.allpoke{
+display:flex;
+flex-direction: column;
+justify-content:center;
+
+
+}
+ .pokemon{
+  width: 200px;
+  height: auto;
+  justify-content: center;
+  border: double 8px rgba(231, 60, 60, 0.521);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px;
+  background-color:rgb(255, 249, 247);
+   ;
+ }

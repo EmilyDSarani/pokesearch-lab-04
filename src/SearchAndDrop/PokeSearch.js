@@ -44,7 +44,7 @@ export default class PokeSearch extends Component {
         e.preventDefault();
         //this.setState({searchQueary: e.target.value});
         await this.fetchSearch();
-        console.log(this.state.searchQueary)
+        
     }
     //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
     
@@ -54,8 +54,9 @@ export default class PokeSearch extends Component {
         const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}`);
         this.setState({pokedex: pokeball.body.results, isLoading:false})  //I made a note that you can put a lot of states in one setState...so I assume one needs to go here
     }
+   
     render() {
-        console.log(this.state.pokedex)
+        
         return (
             
             <div>
@@ -73,6 +74,7 @@ export default class PokeSearch extends Component {
                 }
                 
                 </ul>
+
                 <DropDown />
             </div>
         )
