@@ -4,7 +4,8 @@ import PokeItem from './PokeItem'
 export default class PokeList extends Component {
     render() {
         return (
-            <div>
+            
+            <>
                 {
                     this.props.pokemon.map (poke => <PokeItem 
                         url_image = {poke.url_image}
@@ -13,7 +14,7 @@ export default class PokeList extends Component {
                         />)
                 }
 
-            </div>
+            </>
         )
     }
 }
