@@ -1,5 +1,6 @@
 /* Katie showed me how to import the fonts into the CSS*/
 @import url('http://fonts.cdnfonts.com/css/pokemon-solid');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body{
   background-image:url(https://wallpaperaccess.com/full/5818315.png);
   background-position: center;
@@ -74,12 +75,15 @@ ul{
    display: flex;
    justify-content: center;
    text-align: center;
-  color: red;
+  color: rgb(255, 62, 62);
+  font-weight: lighter;
   font-family: 'Pokemon Solid', sans-serif;
  }
 .form{
   text-align: center;
 }
  .pokename{
-   color: rgb(238, 120, 222);
+   color: rgb(255, 59, 59);
+   font-family: 'Press Start 2P', cursive;
+   font-size: small;
  }
