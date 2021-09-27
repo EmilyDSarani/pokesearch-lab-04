@@ -1,18 +1,44 @@
-import PokeSearch from './SearchAndDrop/PokeSearch.js';
-import './App.css';
-import Head from './HeadAndInstruction/Head.js';
-import Footer from './HeadAndInstruction/Footer.js';
-//We want to keep this page clean and render in the different pokemon that will be coming through on the data
-//This will be the future landing page when we start doing more of the react router stuff
+import React, { Component } from "react";
+import Home from "./Home.js";
+import PokeDetails from "./Details/PokeDetails.js"
+import PokeDex from ".PokeDex.js";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router";
 
-function App() {
-  return (
-    <div>
-      <Head />
-      <PokeSearch />
-      <Footer />
-    </div>
-  );
+
+export default class App extends Component{
+  render() {
+    return (
+
+      <>
+  <Router>
+    <Switch>
+      <Route 
+      exact 
+      path="/"
+      render={(routerProps) => <Home {...routerProps}/>}
+       />
+     
+      <Route 
+      exact
+      path="/pokedex"
+      render={(routerProps) => <PokeDex {...routerProps}/>}
+       />
+  
+    
+      <Route
+      exact
+      path="/pokemon/:pokemonName"
+      render={(routerProps) => <PokeDetails {...routerProps}/>}
+       />
+      
+
+    </Switch>
+  </Router>
+  </>
+)
 }
-
-export default App;
+}

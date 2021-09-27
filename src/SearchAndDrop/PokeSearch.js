@@ -66,9 +66,6 @@ export default class PokeSearch extends Component {
         
     }
 
-  
-
-   
     render() {
         
         return (
