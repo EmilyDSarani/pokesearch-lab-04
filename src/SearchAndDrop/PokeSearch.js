@@ -69,7 +69,8 @@ export default class PokeSearch extends Component {
     //Zack pointed out that instead of grabbing from data to remember that we are grabbing from the API
     fetchSearch = async() =>{
         this.setState({isLoading:true})
-        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}&sort=pokemon&direction=${this.state.sortOrder}&perPage=100&page=${this.state.currentPage}`); //Yosi helped me figure out how to show all the pokemon
+        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}&sort=pokemon&direction=${this.state.sortOrder}&perPage=100&page=${this.state.currentPage}`); //Yosi helped me figure out how to show all the pokemon, but to see how padgneation works, I changed it to 50 pokemon
+        // we want to set the page to currentPage so that the more pages that get added, it is easier to change it in the code later (which it is right now hardcode, but I bet there is another way to do it). 
         this.setState({pokedex: pokeball.body.results, isLoading:false});  //I made a note that you can put a lot of states in one setState...so I assume one needs to go here
         
     }
