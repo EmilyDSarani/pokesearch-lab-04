@@ -6,8 +6,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  NavLink,
 } from "react-router-dom";
-
 
 //This page is essentially going to be the links page. This needs to be set up and working because it is going to set the tone for the other pages
 //Another thing that is needed for this page is that the lab asks for NavLinks that are ActiveStyle. 
@@ -18,6 +18,10 @@ export default class App extends Component{
       <>
       
   <Router>
+    <header>
+    <NavLink exact activeClassName= 'active' to='/'>Home </NavLink>
+    <NavLink exact activeClassName= 'active' to='/pokedex'>Pokedex </NavLink>
+</header>
     <Switch>
       <Route 
       path="/"
