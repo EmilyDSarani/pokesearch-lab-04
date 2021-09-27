@@ -88,10 +88,10 @@ export default class PokeSearch extends Component {
                 option={["asc","desc"]}/>
                 {/* Ideally, I need this to disable/hide the prev button when it is on the first page
                 and hide/disable the next button when it is on the last page of pokemon*/}
-                
+
                 {this.state.currentPage !== 1 &&<button onClick ={this.handlePrevClick}>Prev</button>}
                 
-                {this.state.currentPage < 20 && <button onClick={this.handleNextClick}>Next</button>} 
+                {this.state.currentPage < 9 && <button onClick={this.handleNextClick}>Next</button>} 
                           
                 {/* if this state, else this, else this*/}
                 <ul>
