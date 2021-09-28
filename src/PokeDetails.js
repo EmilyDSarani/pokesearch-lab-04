@@ -11,18 +11,22 @@ import PokeItem from './SearchAndDrop/PokeItem'
 // Then, we need to link this to the pokemon themselves
 export default class PokeDetails extends Component {
     state={
-        pokedex:[]
+        poke:{}
     }
     compenentDidMount = async () =>{
-        const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex/${this.props.match.params._id}`);
-        this.setState({pokedex:response.body})
+        const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex/${this.props.match.params._id}`)
+       //console.log(response.body)
+        this.setState({poke:response.body})
     }
 
     render() {
         return (
             <div>
-                <h1>Pokemon Stats for {this.props.match.params._id}</h1>
-               <PokeItem pokemonName={this.state._id} />
+                
+                <h1>Pokemon Stats for {this.props.match.params.pokemon}</h1>
+               <PokeItem  url_image = {this.state.poke.url_image}
+                        pokemon = {this.state.poke.pokemon}
+                        type_1 = {this.state.poke.type_1}  />
             </div>
         )
     }
