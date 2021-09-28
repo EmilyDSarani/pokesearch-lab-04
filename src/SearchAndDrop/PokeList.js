@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PokeItem from './PokeItem'
-import { Link } from 'react-router-dom'
+
 
 export default class PokeList extends Component {
     
