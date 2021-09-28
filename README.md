@@ -73,4 +73,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Mentions:
 Pokeball Loading Screen https://i.pinimg.com/originals/d6/18/a6/d618a633128f486b7eaf2db453995cd5.gif found on google
 background image of Pokedex: https://wallpaperaccess.com/full/5818315.png
+Guy holding Pokeball: Photo by Vincent M.A. Janssen from Pexels https://www.pexels.com/photo/person-holding-pokemon-ball-toy-1310847/ 
 

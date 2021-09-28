@@ -16,6 +16,7 @@ import PokeList from './PokeList.js';
 
 //since I will be handling state in this one, I also need the DropDown to be called here. 
 
+//Part two, need to add the Padgenation
 
 export default class PokeSearch extends Component {
     //this is setting the state for the search engin, the pokedex, and the loading screen
@@ -24,7 +25,7 @@ export default class PokeSearch extends Component {
         searchQueary:'',
         isLoading: false,
         sortOrder:'',
-        // sortType:'',
+        currentPage: 1,
 
     }
     //the componentDidMount is the life-cycle method. According to my notes, this method is called at a certain moment in the component's life. Which here, we are calling it right before it is born...?
@@ -45,30 +46,35 @@ export default class PokeSearch extends Component {
         e.preventDefault();
         //this.setState({searchQueary: e.target.value});
         await this.fetchSearch()
+        await this.setState({currentPage:1})
         
     }
-
+    //This will word the order. A-Z, Z-A
     handleSortOrder= async(e) => {
         await this.setState({sortOrder: e.target.value})
         this.fetchSearch()
     }
-    // handleSortType= async(e) =>{
-    //     await this.setState({sortType: e.target.value})
-    // }
+    //These handle buttons Prev and Next will allow the user to navigate between the pages of pokemon
+    handlePrevClick= async()=>{
+        await this.setState({currentPage:this.state.currentPage -1})
+        await this.fetchSearch()
+    }
+    handleNextClick= async() =>{
+        await this.setState({currentPage:this.state.currentPage +1})
+        await this.fetchSearch()
+    }
 
     //Im...still not exactly what fetch does. Is it...grabbing whatever the user specically searches for upon load to filter through all of those items? Maybe not filter... 
     //Yosi and Karl showed me that I could stack the ${state} on top of each other in the code. 
     //Zack pointed out that instead of grabbing from data to remember that we are grabbing from the API
     fetchSearch = async() =>{
         this.setState({isLoading:true})
-        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}&sort=pokemon&direction=${this.state.sortOrder}&perPage=1000`); //Yosi helped me figure out how to show all the pokemon
+        const pokeball = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex?pokemon=${this.state.searchQueary}&sort=pokemon&direction=${this.state.sortOrder}&perPage=100&page=${this.state.currentPage}`); //Yosi helped me figure out how to show all the pokemon, but to see how padgneation works, I changed it to 50 pokemon
+        // we want to set the page to currentPage so that the more pages that get added, it is easier to change it in the code later (which it is right now hardcode, but I bet there is another way to do it). 
         this.setState({pokedex: pokeball.body.results, isLoading:false});  //I made a note that you can put a lot of states in one setState...so I assume one needs to go here
         
     }
 
-  
-
-   
     render() {
         
         return (
@@ -81,6 +87,13 @@ export default class PokeSearch extends Component {
                 </form>
                 <DropDown handleSort={this.handleSortOrder}
                 option={["asc","desc"]}/>
+                {/* Ideally, I need this to disable/hide the prev button when it is on the first page
+                and hide/disable the next button when it is on the last page of pokemon*/}
+
+                {this.state.currentPage !== 1 &&<button onClick ={this.handlePrevClick}>Prev</button>}
+                
+                {this.state.currentPage < 9 && <button onClick={this.handleNextClick}>Next</button>} 
+                          
                 {/* if this state, else this, else this*/}
                 <ul>
                
