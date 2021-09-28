@@ -36,7 +36,7 @@ export default class App extends Component{
        />
   
       <Route
-      path="/pokedex/:pokemonName"
+      path="/pokedex/:_id"
       exact
       render={(routerProps) => <PokeDetails {...routerProps}/>}
        />

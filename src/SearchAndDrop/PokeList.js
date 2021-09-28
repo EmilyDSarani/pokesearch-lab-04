@@ -14,6 +14,7 @@ export default class PokeList extends Component {
                         url_image = {poke.url_image}
                         pokemon = {poke.pokemon}
                         type_1 = {poke.type_1} 
+                        _id={poke._id}
                         />)
                     }
                 
