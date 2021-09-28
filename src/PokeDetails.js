@@ -13,7 +13,7 @@ export default class PokeDetails extends Component {
     state={
         poke:{}
     }
-    compenentDidMount = async () =>{
+    componentDidMount = async () =>{
         const response = await request.get(`https://pokedex-alchemy.herokuapp.com/api/pokedex/${this.props.match.params._id}`)
        //console.log(response.body)
         this.setState({poke:response.body})
