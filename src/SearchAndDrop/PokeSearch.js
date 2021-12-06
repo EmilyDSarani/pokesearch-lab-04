@@ -31,7 +31,7 @@ export default class PokeSearch extends Component {
     //the componentDidMount is the life-cycle method. According to my notes, this method is called at a certain moment in the component's life. Which here, we are calling it right before it is born...?
     //this is so the component will do the thing we need it to do upon loading it in.
     //we make it async so that...fetch can grab it. I asked Dani
-    compenentDidMount = async () =>{
+    componentDidMount = async () =>{
        await this.fetchSearch();
 
     }
